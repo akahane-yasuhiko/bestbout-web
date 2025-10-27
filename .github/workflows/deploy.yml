@@ -27,15 +27,15 @@ jobs:
 
       - name: Build (Project Pages base path)
         run: |
-          echo "BASE_PATH=/bestbout-web/" >> $GITHUB_ENV
+          echo "BASE_PATH=/bestbout-web/" >> $GITHUB_ENV   # リポ名に合わせる
           npm run build
-          # SPA直リンク対策（/cards/xxx 直叩きでも表示させる）
+          # SPA直リンク対策
           cp dist/index.html dist/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist'
+          path: 'dist'   # ← ここが超重要：dist を配信
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
