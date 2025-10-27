@@ -1,0 +1,51 @@
+.kk-carousel {
+    position: relative;
+}
+
+.kk-slide {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .25);
+}
+
+.kk-poster {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+    transform: scale(1);
+    transition: transform .35s ease, filter .35s ease;
+}
+
+.kk-meta {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 12px 14px;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+}
+
+.kk-gradient {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 0, 0, .75), rgba(0, 0, 0, 0));
+}
+
+.keen-slider__slide {
+    opacity: .7;
+    transition: opacity .35s ease, transform .35s ease;
+}
+
+.kk-active {
+    opacity: 1;
+}
+
+.kk-slide:hover .kk-poster {
+    transform: scale(1.03);
+}
