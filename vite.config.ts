@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
     base,
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'), // ← これを追加！
+        '@': path.resolve(__dirname, './src'),
       },
     },
     build: {

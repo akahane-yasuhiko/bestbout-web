@@ -27,7 +27,7 @@ jobs:
 
       - name: Build (Project Pages base path)
         run: |
-          echo "BASE_PATH=/bestbout-web/" >> $GITHUB_ENV   # ← リポ名に合わせて変更
+          echo "BASE_PATH=/bestbout-web/" >> $GITHUB_ENV
           npm run build
           # SPA直リンク対策（/cards/xxx 直叩きでも表示させる）
           cp dist/index.html dist/404.html
