@@ -9,7 +9,7 @@ export const api = {
             return r.json()
         }
         // fallback: 静的サンプル
-        const r = await fetch(`${import.meta.env.BASE_URL}data/cards.sample.json`)
+        const r = await fetch(`${import.meta.env.BASE_URL}data/cards.sample.json?url`)
         return r.json()
     }
 }
