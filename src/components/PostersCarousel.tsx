@@ -1,10 +1,11 @@
+import CardPoster from '@/components/CardPoster'
 import { useState, useEffect } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
 import './posters.css'
 
 
-type Poster = { id: string; title: string; date?: string; image: string }
+type Poster = { id: string; title: string; date?: string; image?: string }
 
 
 function Autoplay(interval = 2500) {
@@ -63,12 +64,7 @@ export default function PostersCarousel({ posters }: { posters: Poster[] }) {
         <div className="kk-carousel keen-slider" ref={sliderRef}>
             {posters.map((p) => (
                 <div key={p.id} className="keen-slider__slide kk-slide">
-                    <img className="kk-poster" src={p.image} alt={p.title} loading="lazy" />
-                    <div className="kk-gradient" />
-                    <div className="kk-meta">
-                        <div>{p.title}</div>
-                        {p.date && <div style={{ opacity: .85, fontWeight: 600 }}>{p.date}</div>}
-                    </div>
+                    <CardPoster title={p.title} date={p.date} imageSrc={p.image} />
                 </div>
             ))}
         </div>

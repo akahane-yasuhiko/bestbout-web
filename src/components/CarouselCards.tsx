@@ -1,3 +1,4 @@
+import CardPoster from '@/components/CardPoster'
 import { useEffect, useState } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
@@ -52,19 +53,8 @@ export default function CarouselCards({ cards }: { cards: Card[] }) {
     return (
         <div className="keen-slider" ref={sliderRef}>
             {cards.map((c) => (
-                <article
-                    key={c.id}
-                    className="keen-slider__slide"
-                    style={{
-                        background: '#0f172a',
-                        color: 'white',
-                        borderRadius: 16,
-                        padding: 16,
-                        boxShadow: '0 6px 24px rgba(0,0,0,.15)'
-                    }}
-                >
-                    <header style={{ fontWeight: 700, marginBottom: 8 }}>{c.title}</header>
-                    <div style={{ opacity: .8 }}>{c.date ?? 'TBA'}</div>
+                <article key={c.id} className="keen-slider__slide" style={{ background: 'transparent', padding: 0 }}>
+                    <CardPoster title={c.title} date={c.date} />
                 </article>
             ))}
         </div>
