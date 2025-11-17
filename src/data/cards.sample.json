@@ -1,12 +1,20 @@
 [
-    {
-        "id": "c001",
-        "title": "Championship Main Event — A vs B",
-        "date": "2025-11-08"
-    },
-    {
-        "id": "c002",
-        "title": "Co-main — C vs D",
-        "date": "2025-11-08"
-    }
+  {
+    "id": "rizin-2025-11-main",
+    "event": "RIZIN LANDMARK 2025",
+    "fighters": ["桜庭隼人", "リカルド・フローレス"],
+    "date": "2025-11-08",
+    "weight_class": "Lightweight",
+    "status": "scheduled",
+    "poster_image": "/images/posters/rizin-2025-11-main.webp"
+  },
+  {
+    "id": "rizin-2025-11-co",
+    "event": "RIZIN LANDMARK 2025",
+    "fighters": ["田村龍也", "レオン・バスケス"],
+    "date": "2025-11-08",
+    "weight_class": "Featherweight",
+    "status": "scheduled",
+    "poster_image": "/images/posters/rizin-2025-11-co.webp"
+  }
 ]

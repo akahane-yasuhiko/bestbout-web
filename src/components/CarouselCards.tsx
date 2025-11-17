@@ -1,10 +1,9 @@
 import CardPoster from '@/components/CardPoster'
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
-
-
-type Card = { id: string; title: string; date?: string }
+import type { CardSummary } from '@/lib/api'
 
 
 // 自動再生プラグイン（公式サンプル流用）
@@ -30,17 +29,22 @@ function Autoplay(interval = 2500) {
 }
 
 
-export default function CarouselCards({ cards }: { cards: Card[] }) {
+const matchupTitle = (card: CardSummary) =>
+  card.fighters && card.fighters.length >= 2
+    ? `${card.fighters[0]} vs ${card.fighters[1]}`
+    : card.event ?? card.id
+
+export default function CarouselCards({ cards }: { cards: CardSummary[] }) {
     const [loaded, setLoaded] = useState(false)
     const [sliderRef] = useKeenSlider(
         {
             loop: true,
             renderMode: 'performance',
-            slides: { perView: 1.1, spacing: 12 },
+            slides: { perView: 1.05, spacing: -60, origin: 'auto' },
             breakpoints: {
-                '(min-width: 640px)': { slides: { perView: 2.2, spacing: 16 } },
-                '(min-width: 960px)': { slides: { perView: 3.2, spacing: 18 } },
-                '(min-width: 1280px)': { slides: { perView: 4.2, spacing: 20 } },
+                '(min-width: 640px)': { slides: { perView: 2.3, spacing: 12, origin: 'auto' } },
+                '(min-width: 960px)': { slides: { perView: 3.3, spacing: 14, origin: 'auto' } },
+                '(min-width: 1280px)': { slides: { perView: 4.3, spacing: 16, origin: 'auto' } },
             },
         },
         [Autoplay(2500)]
@@ -54,7 +58,9 @@ export default function CarouselCards({ cards }: { cards: Card[] }) {
         <div className="keen-slider" ref={sliderRef}>
             {cards.map((c) => (
                 <article key={c.id} className="keen-slider__slide" style={{ background: 'transparent', padding: 0 }}>
-                    <CardPoster title={c.title} date={c.date} />
+                    <Link to={`/card/${c.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <CardPoster title={matchupTitle(c)} date={c.date} />
+                    </Link>
                 </article>
             ))}
         </div>

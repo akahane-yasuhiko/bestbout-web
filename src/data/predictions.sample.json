@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "id": "pred_001",
+      "card_id": "rizin-2025-11-main",
+      "predictor_handle": "mma_ojisan",
+      "platform": "bluesky",
+      "posted_at": "2025-11-01T12:30:00Z",
+      "winner_pick": "桜庭隼人",
+      "method": "SUB",
+      "round": 2,
+      "confidence": 0.82,
+      "source_url": "https://bsky.app/profile/mma_ojisan/post/3jz7",
+      "notes": "寝技に持ち込めば桜庭が有利との分析。",
+      "raw_ref": "at://did:plc:xyz/app.bsky.feed.post/3jz7"
+    },
+    {
+      "id": "pred_002",
+      "card_id": "rizin-2025-11-main",
+      "predictor_handle": "fight_club",
+      "platform": "bluesky",
+      "posted_at": "2025-11-02T03:10:00Z",
+      "winner_pick": "リカルド・フローレス",
+      "method": "DEC",
+      "round": null,
+      "confidence": 0.64,
+      "source_url": "https://bsky.app/profile/fight_club/post/4abc",
+      "notes": "距離管理で判定勝ちになると予想。"
+    },
+    {
+      "id": "pred_003",
+      "card_id": "rizin-2025-11-co",
+      "predictor_handle": "underdog",
+      "platform": "bluesky",
+      "posted_at": "2025-11-02T09:00:00Z",
+      "winner_pick": "田村龍也",
+      "method": "TKO",
+      "round": 3,
+      "confidence": 0.71,
+      "source_url": "https://bsky.app/profile/underdog/post/90xyz"
+    }
+  ],
+  "nextCursor": null
+}

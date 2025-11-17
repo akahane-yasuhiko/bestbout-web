@@ -18,6 +18,12 @@ const router = createBrowserRouter([
         })
       },
       {
+        path: 'card/:cardId',
+        lazy: async () => ({
+          Component: (await import('./pages/CardDetail')).default
+        })
+      },
+      {
         path: 'rankings',
         lazy: async () => ({
           Component: (await import('./pages/Rankings')).default
