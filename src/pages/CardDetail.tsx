@@ -94,7 +94,14 @@ export default function CardDetailPage() {
                 }}
               >
                 <span style={{ fontWeight: 600 }}>@{p.predictor_handle}</span>
-                <span style={{ textTransform: 'capitalize', opacity: 0.8 }}>{p.platform}</span>
+                <a
+                  href={p.source_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textTransform: 'capitalize', opacity: 0.8, color: 'inherit', textDecoration: 'underline' }}
+                >
+                  {p.platform}
+                </a>
                 <span style={{ fontSize: 14, opacity: 0.8 }}>{formatDateTime(p.posted_at)}</span>
                 <span style={{ fontWeight: 700 }}>{p.winner_pick}</span>
               </div>
