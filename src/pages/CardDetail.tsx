@@ -29,27 +29,27 @@ export default function CardDetailPage() {
       return
     }
     let mounted = true
-    ;(async () => {
-      try {
-        const [cardData, predictionItems] = await Promise.all([
-          api.getCard(cardId),
-          api.listPredictionsForCard(cardId)
-        ])
-        if (!cardData) {
-          if (mounted) setError('カード情報が見つかりません')
-          return
+      ; (async () => {
+        try {
+          const [cardData, predictionItems] = await Promise.all([
+            api.getCard(cardId),
+            api.listPredictionsForCard(cardId)
+          ])
+          if (!cardData) {
+            if (mounted) setError('カード情報が見つかりません')
+            return
+          }
+          if (mounted) {
+            setCard(cardData)
+            setPredictions(predictionItems)
+          }
+        } catch (e) {
+          console.error(e)
+          if (mounted) setError('データの取得に失敗しました')
+        } finally {
+          if (mounted) setLoading(false)
         }
-        if (mounted) {
-          setCard(cardData)
-          setPredictions(predictionItems)
-        }
-      } catch (e) {
-        console.error(e)
-        if (mounted) setError('データの取得に失敗しました')
-      } finally {
-        if (mounted) setLoading(false)
-      }
-    })()
+      })()
     return () => {
       mounted = false
     }
@@ -80,6 +80,22 @@ export default function CardDetailPage() {
           <p style={{ opacity: 0.8 }}>まだ予想がありません。</p>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'minmax(140px, 1fr) 80px 180px 1fr',
+                gap: 12,
+                padding: '0 12px',
+                opacity: 0.6,
+                fontSize: 14,
+                fontWeight: 600
+              }}
+            >
+              <span>Predictor</span>
+              <span>Platform</span>
+              <span>Date</span>
+              <span>Pick</span>
+            </div>
             {predictions.map((p) => (
               <div
                 key={p.id}
