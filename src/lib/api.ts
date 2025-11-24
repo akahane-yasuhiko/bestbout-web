@@ -31,6 +31,8 @@ export type Prediction = {
   confidence?: number | null
   source_url: string
   notes?: string | null
+  hit?: boolean | null
+  evaluated_at?: string | null
 }
 
 type PredictionCollection = {

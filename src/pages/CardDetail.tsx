@@ -119,7 +119,33 @@ export default function CardDetailPage() {
                   {p.platform}
                 </a>
                 <span style={{ fontSize: 14, opacity: 0.8 }}>{formatDateTime(p.posted_at)}</span>
-                <span style={{ fontWeight: 700 }}>{p.winner_pick}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span style={{ fontWeight: 700 }}>{p.winner_pick}</span>
+                  {p.hit === true && (
+                    <span style={{
+                      fontSize: 12,
+                      fontWeight: 'bold',
+                      color: '#4ade80',
+                      border: '1px solid #4ade80',
+                      padding: '2px 6px',
+                      borderRadius: 4
+                    }}>
+                      HIT
+                    </span>
+                  )}
+                  {p.hit === false && (
+                    <span style={{
+                      fontSize: 12,
+                      fontWeight: 'bold',
+                      color: '#f87171',
+                      border: '1px solid #f87171',
+                      padding: '2px 6px',
+                      borderRadius: 4
+                    }}>
+                      MISS
+                    </span>
+                  )}
+                </div>
               </div>
             ))}
           </div>
