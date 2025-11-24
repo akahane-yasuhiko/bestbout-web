@@ -28,6 +28,7 @@ jobs:
       - name: Build for Project Pages base path
         env:
           BASE_PATH: /bestbout-web/
+          VITE_API_BASE: https://bestbout-api-il752lxhzq-an.a.run.app
         run: |
           npm run build
           cp dist/index.html dist/404.html
