@@ -36,29 +36,24 @@ export default function Home() {
 
     return (
         <section>
-            <h1>BestBout</h1>
-            <p>格闘技の試合カード予想のコミュニティサイト。</p>
+            <div style={{ marginBottom: '2rem' }}>
+                <h1>BestBout</h1>
+                <p style={{ opacity: 0.8 }}>格闘技の試合カード予想のコミュニティサイト。</p>
+            </div>
 
-            <div style={{ margin: '18px 0 28px' }}>
+            <h2 className="section-title">Featured Cards</h2>
+            <div style={{ marginBottom: '3rem' }}>
                 <CarouselCards cards={cards} />
             </div>
 
-            <h2>Upcoming Cards</h2>
-            <ul style={{ display: 'grid', gap: 12, paddingLeft: 0, listStyle: 'none' }}>
+            <h2 className="section-title">Upcoming Cards</h2>
+            <ul className="upcoming-list">
                 {cards.map((card) => (
-                    <li
-                        key={card.id}
-                        style={{
-                            border: '1px solid rgba(255,255,255,.1)',
-                            borderRadius: 12,
-                            padding: '12px 16px',
-                            background: 'rgba(255,255,255,.02)'
-                        }}
-                    >
-                        <Link to={`/card/${card.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                            <div style={{ fontWeight: 700 }}>{matchupTitle(card)}</div>
-                            <div style={{ fontSize: 14, opacity: 0.85 }}>
-                                {card.event} {card.date ? ` / ${card.date}` : ''}
+                    <li key={card.id} className="upcoming-card">
+                        <Link to={`/card/${card.id}`} className="upcoming-link">
+                            <div className="upcoming-title">{matchupTitle(card)}</div>
+                            <div className="upcoming-meta">
+                                {card.event} <span style={{ margin: '0 8px', opacity: 0.3 }}>|</span> {card.date}
                             </div>
                         </Link>
                     </li>
