@@ -74,81 +74,48 @@ export default function CardDetailPage() {
         )}
       </div>
 
-      <div>
-        <h2 style={{ fontSize: 20, marginBottom: 12 }}>Predictions</h2>
+      <div className="predictions-section">
+        <h2 style={{ fontSize: 20, marginBottom: 16 }}>Predictions</h2>
         {predictions.length === 0 ? (
           <p style={{ opacity: 0.8 }}>まだ予想がありません。</p>
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'minmax(140px, 1fr) 80px 180px 1fr',
-                gap: 12,
-                padding: '0 12px',
-                opacity: 0.6,
-                fontSize: 14,
-                fontWeight: 600
-              }}
-            >
-              <span>Predictor</span>
-              <span>Platform</span>
-              <span>Date</span>
-              <span>Pick</span>
-            </div>
-            {predictions.map((p) => (
-              <div
-                key={p.id}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'minmax(140px, 1fr) 80px 180px 1fr',
-                  gap: 12,
-                  padding: '10px 12px',
-                  borderRadius: 12,
-                  border: '1px solid rgba(255,255,255,.1)',
-                  background: 'rgba(255,255,255,.03)'
-                }}
-              >
-                <span style={{ fontWeight: 600 }}>@{p.predictor_handle}</span>
-                <a
-                  href={p.source_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textTransform: 'capitalize', opacity: 0.8, color: 'inherit', textDecoration: 'underline' }}
-                >
-                  {p.platform}
-                </a>
-                <span style={{ fontSize: 14, opacity: 0.8 }}>{formatDateTime(p.posted_at)}</span>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span style={{ fontWeight: 700 }}>{p.winner_pick}</span>
-                  {p.hit === true && (
-                    <span style={{
-                      fontSize: 12,
-                      fontWeight: 'bold',
-                      color: '#4ade80',
-                      border: '1px solid #4ade80',
-                      padding: '2px 6px',
-                      borderRadius: 4
-                    }}>
-                      HIT
-                    </span>
-                  )}
-                  {p.hit === false && (
-                    <span style={{
-                      fontSize: 12,
-                      fontWeight: 'bold',
-                      color: '#f87171',
-                      border: '1px solid #f87171',
-                      padding: '2px 6px',
-                      borderRadius: 4
-                    }}>
-                      MISS
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+          <table className="predictions-table">
+            <thead>
+              <tr>
+                <th>Predictor</th>
+                <th>Platform</th>
+                <th>Date</th>
+                <th>Pick</th>
+              </tr>
+            </thead>
+            <tbody>
+              {predictions.map((p) => (
+                <tr key={p.id}>
+                  <td>
+                    <span style={{ fontWeight: 600 }}>@{p.predictor_handle}</span>
+                  </td>
+                  <td>
+                    <a
+                      href={p.source_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textTransform: 'capitalize', opacity: 0.8, color: 'inherit', textDecoration: 'underline' }}
+                    >
+                      {p.platform}
+                    </a>
+                  </td>
+                  <td style={{ fontSize: 14, opacity: 0.8 }}>{formatDateTime(p.posted_at)}</td>
+                  <td>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                      <span style={{ fontWeight: 700 }}>{p.winner_pick}</span>
+                      {p.hit === true && <span className="badge-hit">HIT</span>}
+                      {p.hit === false && <span className="badge-miss">MISS</span>}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
     </section>

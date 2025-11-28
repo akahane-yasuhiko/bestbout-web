@@ -168,3 +168,67 @@ button:focus-visible {
 .app-nav a.active {
   color: #e5e7eb;
 }
+
+/* Card Detail Styles */
+.predictions-section {
+  margin-top: 3rem;
+}
+
+.predictions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.predictions-table th,
+.predictions-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.predictions-table th {
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.predictions-table tr:last-child td {
+  border-bottom: none;
+}
+
+.predictions-table tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.badge-hit {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  margin-left: 8px;
+}
+
+.badge-miss {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(248, 113, 113, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  margin-left: 8px;
+}
