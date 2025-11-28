@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { api, CardDetail, Prediction } from '@/lib/api'
+import { BlueskyIcon } from '@/components/Icons'
 
 const matchupTitle = (card: CardDetail) =>
   card.fighters && card.fighters.length >= 2
@@ -94,14 +95,20 @@ export default function CardDetailPage() {
                   <td>
                     <span style={{ fontWeight: 600 }}>@{p.predictor_handle}</span>
                   </td>
+
                   <td>
                     <a
                       href={p.source_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ textTransform: 'capitalize', opacity: 0.8, color: 'inherit', textDecoration: 'underline' }}
+                      style={{ textTransform: 'capitalize', opacity: 0.8, color: 'inherit', textDecoration: 'none', display: 'flex', alignItems: 'center' }}
+                      title={p.platform}
                     >
-                      {p.platform}
+                      {p.platform.toLowerCase() === 'bluesky' ? (
+                        <BlueskyIcon size={20} />
+                      ) : (
+                        <span style={{ textDecoration: 'underline' }}>{p.platform}</span>
+                      )}
                     </a>
                   </td>
                   <td style={{ fontSize: 14, opacity: 0.8 }}>{formatDateTime(p.posted_at)}</td>

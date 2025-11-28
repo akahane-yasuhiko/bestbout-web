@@ -36,11 +36,6 @@ export default function Home() {
 
     return (
         <section>
-            <div style={{ marginBottom: '2rem' }}>
-                <h1>BestBout</h1>
-                <p style={{ opacity: 0.8 }}>格闘技の試合カード予想のコミュニティサイト。</p>
-            </div>
-
             <h2 className="section-title">Featured Cards</h2>
             <div style={{ marginBottom: '3rem' }}>
                 <CarouselCards cards={cards} />
