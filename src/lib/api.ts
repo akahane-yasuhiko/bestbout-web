@@ -11,6 +11,7 @@ export type CardSummary = {
   weight_class?: string
   status?: string
   poster_image?: string
+  fight_url?: string
 }
 
 export type CardDetail = CardSummary & {

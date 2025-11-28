@@ -67,7 +67,20 @@ export default function CardDetailPage() {
           ← カード一覧へ戻る
         </Link>
         <p style={{ margin: '12px 0 4px', opacity: 0.8 }}>{card.event}</p>
-        <h1 style={{ fontSize: 28, margin: 0 }}>{matchupTitle(card)}</h1>
+        <h1 style={{ fontSize: 28, margin: 0 }}>
+          {card.fight_url ? (
+            <a
+              href={card.fight_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px dotted rgba(255,255,255,0.5)' }}
+            >
+              {matchupTitle(card)}
+            </a>
+          ) : (
+            matchupTitle(card)
+          )}
+        </h1>
         {card.date && (
           <p style={{ marginTop: 6, fontSize: 16, opacity: 0.9 }}>
             {formatDate(card.date)} {card.weight_class ? `· ${card.weight_class}` : ''}
