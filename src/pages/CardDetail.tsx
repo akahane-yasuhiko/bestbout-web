@@ -91,17 +91,17 @@ export default function CardDetailPage() {
             </thead>
             <tbody>
               {predictions.map((p) => (
-                <tr key={p.id}>
+                <tr
+                  key={p.id}
+                  onClick={() => window.open(p.source_url, '_blank')}
+                  style={{ cursor: 'pointer' }}
+                >
                   <td>
                     <span style={{ fontWeight: 600 }}>@{p.predictor_handle}</span>
                   </td>
-
                   <td>
-                    <a
-                      href={p.source_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ textTransform: 'capitalize', opacity: 0.8, color: 'inherit', textDecoration: 'none', display: 'flex', alignItems: 'center' }}
+                    <div
+                      style={{ textTransform: 'capitalize', opacity: 0.8, color: 'inherit', display: 'flex', alignItems: 'center' }}
                       title={p.platform}
                     >
                       {p.platform.toLowerCase() === 'bluesky' ? (
@@ -109,7 +109,7 @@ export default function CardDetailPage() {
                       ) : (
                         <span style={{ textDecoration: 'underline' }}>{p.platform}</span>
                       )}
-                    </a>
+                    </div>
                   </td>
                   <td style={{ fontSize: 14, opacity: 0.8 }}>{formatDateTime(p.posted_at)}</td>
                   <td>
