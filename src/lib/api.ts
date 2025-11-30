@@ -24,6 +24,7 @@ export type Prediction = {
   id: string
   card_id: string
   predictor_handle: string
+  predictor_name?: string
   platform: string
   posted_at: string
   winner_pick: string

@@ -110,7 +110,12 @@ export default function CardDetailPage() {
                   style={{ cursor: 'pointer' }}
                 >
                   <td>
-                    <span style={{ fontWeight: 600 }}>@{p.predictor_handle}</span>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <span style={{ fontWeight: 600 }}>{p.predictor_name || p.predictor_handle}</span>
+                      {p.predictor_name && (
+                        <span style={{ fontSize: 12, opacity: 0.6 }}>@{p.predictor_handle}</span>
+                      )}
+                    </div>
                   </td>
                   <td>
                     <div
