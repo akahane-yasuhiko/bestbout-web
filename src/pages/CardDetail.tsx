@@ -89,17 +89,17 @@ export default function CardDetailPage() {
       </div>
 
       <div className="predictions-section">
-        <h2 style={{ fontSize: 20, marginBottom: 16 }}>Predictions</h2>
+        <h2 style={{ fontSize: 20, marginBottom: 16 }}>勝利予想</h2>
         {predictions.length === 0 ? (
           <p style={{ opacity: 0.8 }}>まだ予想がありません。</p>
         ) : (
           <table className="predictions-table">
             <thead>
               <tr>
-                <th>Predictor</th>
-                <th>Platform</th>
-                <th>Date</th>
-                <th>Pick</th>
+                <th>書き込み</th>
+                <th>メディア</th>
+                <th>日時</th>
+                <th>勝利</th>
               </tr>
             </thead>
             <tbody>
