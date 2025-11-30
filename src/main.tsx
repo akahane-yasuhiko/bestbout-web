@@ -13,12 +13,6 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       {
-        path: 'cards',
-        lazy: async () => ({
-          Component: (await import('./pages/Cards')).default
-        })
-      },
-      {
         path: 'card/:cardId',
         lazy: async () => ({
           Component: (await import('./pages/CardDetail')).default

@@ -63,8 +63,8 @@ export default function CardDetailPage() {
   return (
     <section style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       <div>
-        <Link to="/cards" style={{ textDecoration: 'none', fontSize: 14 }}>
-          ← カード一覧へ戻る
+        <Link to="/" style={{ textDecoration: 'none', fontSize: 14 }}>
+          ← ホームへ戻る
         </Link>
         <p style={{ margin: '12px 0 4px', opacity: 0.8 }}>{card.event}</p>
         <h1 style={{ fontSize: 28, margin: 0 }}>
@@ -96,7 +96,7 @@ export default function CardDetailPage() {
           <table className="predictions-table">
             <thead>
               <tr>
-                <th>書き込み</th>
+                <th>ユーザー</th>
                 <th>メディア</th>
                 <th>日時</th>
                 <th>勝利</th>
