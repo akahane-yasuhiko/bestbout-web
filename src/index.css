@@ -288,8 +288,11 @@ button:focus-visible {
   .predictions-table td:nth-child(4) {
     grid-column: 3;
     grid-row: 1;
-    justify-self: end;
     text-align: right;
+  }
+
+  .predictions-table td:nth-child(4)>div {
+    justify-content: flex-end;
   }
 
   /* Date */
