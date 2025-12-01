@@ -129,7 +129,7 @@ export default function CardDetailPage() {
                       )}
                     </div>
                   </td>
-                  <td style={{ fontSize: 14, opacity: 0.8 }}>{formatDateTime(p.posted_at)}</td>
+                  <td>{formatDateTime(p.posted_at)}</td>
                   <td>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <span style={{ fontWeight: 700 }}>{p.winner_pick}</span>
