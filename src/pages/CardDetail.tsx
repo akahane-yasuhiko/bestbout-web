@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { api, CardDetail, Prediction } from '@/lib/api'
-import { BlueskyIcon } from '@/components/Icons'
+import { BlueskyIcon, XIcon } from '@/components/Icons'
 
 const matchupTitle = (card: CardDetail) =>
   card.fighters && card.fighters.length >= 2
@@ -124,6 +124,8 @@ export default function CardDetailPage() {
                     >
                       {p.platform.toLowerCase() === 'bluesky' ? (
                         <BlueskyIcon size={20} />
+                      ) : p.platform.toLowerCase() === 'x' ? (
+                        <XIcon size={20} />
                       ) : (
                         <span style={{ textDecoration: 'underline' }}>{p.platform}</span>
                       )}
